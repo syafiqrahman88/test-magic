@@ -2,8 +2,8 @@ import random
 import streamlit as st
 
 st.title("Syafiq's Magic 8 Ball")
-st.header("_This_ is :blue[cool] :sunglasses:")
 st.header("Instructions: Input your *name* and *question* and press enter for a Magic 8 Ball prediction!")
+st.header("Enter new questions for new answers!")
 
 name = st.text_input("Enter a name 👇")
 question = st.text_input("Enter a question 👇")
