@@ -1,40 +1,37 @@
-import altair as alt
-import numpy as np
-import pandas as pd
+import random
 import streamlit as st
 
-"""
-# Welcome to Streamlit!
+st.title("Syafiq's Magic 8 Ball")
+st.title("_This_ is :blue[cool] :sunglasses:")
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
-
-num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
-
-indices = np.linspace(0, 1, num_points)
-theta = 2 * np.pi * num_turns * indices
-radius = indices
-
-x = radius * np.cos(theta)
-y = radius * np.sin(theta)
-
-df = pd.DataFrame({
-    "x": x,
-    "y": y,
-    "idx": indices,
-    "rand": np.random.randn(num_points),
-})
-
-st.altair_chart(alt.Chart(df, height=700, width=700)
-    .mark_point(filled=True)
-    .encode(
-        x=alt.X("x", axis=None),
-        y=alt.Y("y", axis=None),
-        color=alt.Color("idx", legend=None, scale=alt.Scale()),
-        size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-    ))
+name = st.text_input("Enter a name 👇")
+question = st.text_input("Enter a question 👇")
+answer = ""
+random_number = random.randint(1, 11)
+if random_number == 1:
+  answer = "Yes - definitely"
+elif random_number == 2:
+  answer = "It is decidedly so"
+elif random_number == 3:
+  answer = "Without a doubt"
+elif random_number == 4:
+  answer = "Reply hazy, try again"
+elif random_number == 5:
+  answer = "Ask again later"
+elif random_number == 6:
+  answer = "Better not tell you now"
+elif random_number == 7:
+  answer = "My sources say no"
+elif random_number == 8:
+  answer = "Outlook not so good"
+elif random_number == 9:
+  answer = "Very doubtful"
+elif random_number == 10:
+  answer = "You must just believe in yourself"
+elif random_number == 11:
+  answer = "SIKE!!!!"
+else:
+  answer = "Error"
+if name and question:
+    st.write(name + " asks: " + question)
+    st.write("Magic 8-Ball's answer: " + answer)
