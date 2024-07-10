@@ -2,8 +2,7 @@ import random
 import streamlit as st
 
 st.title("Syafiq's Magic 8 Ball")
-st.header("Instructions: Input your *name* and *question* and press enter for a Magic 8 Ball prediction!")
-st.header("Enter new questions for new answers!")
+st.title("_This_ is :blue[cool] :sunglasses:")
 
 name = st.text_input("Enter a name 👇")
 question = st.text_input("Enter a question 👇")
@@ -12,27 +11,29 @@ random_number = random.randint(1, 11)
 if random_number == 1:
   answer = "Yes - definitely"
 elif random_number == 2:
-  answer = "It is decidedly so"
+  answer = "NOPE!!"
 elif random_number == 3:
   answer = "Without a doubt"
 elif random_number == 4:
-  answer = "Reply hazy, try again"
+  answer = "Computer says: No"
 elif random_number == 5:
-  answer = "Ask again later"
+  answer = "Dunno lah"
 elif random_number == 6:
-  answer = "Better not tell you now"
+  answer = "Yes, I think"
 elif random_number == 7:
   answer = "My sources say no"
 elif random_number == 8:
-  answer = "Outlook not so good"
+  answer = "Jein"
 elif random_number == 9:
-  answer = "Very doubtful"
+  answer = "Resounding YES"
 elif random_number == 10:
-  answer = "You must just believe in yourself"
+  answer = "Self belief is all you need"
 elif random_number == 11:
-  answer = "SIKE!!!!"
+  answer = "YESSIR JAWOHL"
 else:
   answer = "Error"
 if name and question:
-    st.write(name + " asks: " + question)
-    st.write("Magic 8-Ball's answer: " + answer)
+    st.subheader(name + " asks:")
+    st.subheader(question, divider='rainbow')
+    st.subheader("Magic 8-Ball's answer:")
+    st.subheader(answer,divider='rainbow')
